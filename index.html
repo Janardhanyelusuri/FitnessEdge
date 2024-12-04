@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .color-cards{
+      display: flex;
+      justify-self: center;
+      margin:1rem;
+    }
+.wrapper {
+  width: 600px; 
+  height: 350px;
+  position: relative;
+  box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.102);
+  background-color:linear-gradient(to top right,rgb(8, 8, 223), green);
+  justify-self: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.inner {
+  --w: 100px;
+  --h: 150px;
+  --translateZ: calc((var(--w) + var(--h)) + 0px);
+  --rotateX: -15deg;
+  --perspective: 1000px;
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  top: 25%;
+  left: calc(50% - (var(--w) / 2) - 2.5px);
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective));
+  animation: rotating 20s linear infinite; /* */
+}
+@keyframes rotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+      rotateY(0);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+      rotateY(1turn);
+  }
+}
+
+.card {
+  position: absolute;
+  border: 2px solid rgba(var(--color-card));
+  border-radius: 12px;
+  overflow: hidden;
+  inset: 0;
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
+    translateZ(var(--translateZ));
+}
+
+.img {
+  display: flex;
+  justify-content:center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0000
+    radial-gradient(
+      circle,
+      rgba(var(--color-card), 0.2) 0%,
+      rgba(var(--color-card), 0.6) 80%,
+      rgba(var(--color-card), 0.9) 100%
+    );
+}
+/* From Uiverse.io by gharsh11032000 */ 
+.button {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #02ff70 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+.nav{
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  filter: blur(20px);
+  height: 3rem;
+  right:10px;
+  left:1px;
+  position:fixed;
+}
+
+.button:hover::after {
+  filter: blur(30px);
+}
+
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.button:active::before {
+  scale: 0.7;
+}
+
+.navbutton{
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+.navbutton::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+.navbutton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, hwb(65 4% 3%) 0%, hwb(128 2% 0%) 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+  </style>
+</head>
+<body>
+  <div class="nav">
+</div>
+<div style="display: flex;position: fixed;top: 10px;right:20px;gap:50px; box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.102);">
+  <a href="#color-cards"><button class="navbutton">Diet</button></a>
+  <a href="#enroll"><button class="navbutton">Enroll</button></a>
+  <a href="#fitnesstrack"><button class="navbutton">FitnessTrack</button></a>
+</div>
+    
+
+  <div style=" display:flex;justify-content:center;flex-direction:column;background-color: #000;color: white;padding:1rem; box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.102);">
+    <br><br><br><br><br>
+    <h1 style="color: white;">Welcome To The Fitness Edge!</h1>
+    <h2>🔥 Transform Your Body, Mind, and Life – Join Us Today! 🔥</h2>
+    <h4 style="color: gray;">Are you ready to unlock your full potential and achieve the fitness goals you’ve always dreamed of? 
+      Whether you want to shed those extra pounds, build muscle, or simply feel healthier and more energized, we’re here to help you
+       make it happen!
+      With personalized workout plans, expert guidance, and a supportive community, we make fitness accessible and fun for everyone. 
+      No matter your starting point, we’re committed to helping you succeed.
+
+      Expert trainers and state-of-the-art facilities
+      Customized fitness programs tailored to your goals
+      Progress tracking tools to keep you motivated
+      A welcoming community to inspire and support you
+      Your Fitness Journey Starts Today!
+      Don’t let another day pass you by—take control of your health and transform your life. Explore our programs, track your progress, and celebrate your milestones with us.
+      </h4>
+  </div>
+
+  
+  <div style="display: flex;background-color: #000 ;align-items: center;justify-content: center;max-height: 100%;max-width: 100%;padding:1rem; box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.102);">
+    <div>
+      <h2 style="color: white;">Are you looking for Diet plan!</h2><br>
+      <h4 style="color:gray;">A diet plan is a structured approach to eating that aims to promote health, manage weight, or meet specific fitness 
+        goals. It typically includes a balanced combination of nutrients, such as proteins, carbohydrates, fats, vitamins, and minerals, 
+        tailored to an individual’s needs. A good diet plan considers factors like age, activity level, medical conditions, and personal preferences. 
+        It often emphasizes whole, unprocessed foods like fruits, vegetables, lean proteins, and whole grains while minimizing processed foods, added 
+        sugars, and unhealthy fats. Consistency and portion control are key to the success of any diet plan, ensuring sustainable and long-term benefits 
+        for overall well-being.</h4>
+    </div>
+   
+  <div class="color-cards" id="color-cards"> 
+    
+    <div class="wrapper" >
+   
+      <div class="inner" style="--quantity: 10;">
+        <h1 style="color:gray">Select Body Type For Diet Plan</h1>
+        <div class="card" style="--index: 0;--color-card: 142, 249, 252;">
+          <div class="img"><a href="mendiet.html"><img src="https://i.pinimg.com/originals/5e/53/d4/5e53d49daddb624dbded8f7e2c210b99.gif" alt="" width="100%" height="100%"></a></div>
+         </div>
+        <div class="card" style="--index: 1;--color-card: 142, 252, 204;">
+          <div class="img"><a href="womendiet.html"><img src="https://i.pinimg.com/originals/48/d3/18/48d318b6fd069adf7fd5ad23bf3206f6.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 2;--color-card: 142, 252, 157;">
+          <div class="img"><a href="mendiet.html"><img src="https://i.pinimg.com/originals/22/6f/8b/226f8bed78eb03d988c67bbe2bfff9e0.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 3;--color-card: 215, 252, 142;">
+          <div class="img"><a href="womendiet.html"><img src="https://i.pinimg.com/originals/f2/8c/40/f28c4011844420e687b7dbbb9d081000.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 4;--color-card: 252, 252, 142;">
+          <div class="img"><a href="mendiet.html"><img src="https://i.pinimg.com/originals/ef/ec/29/efec29d9b957c154482946444055e160.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 5;--color-card: 252, 208, 142;">
+          <div class="img"><a href="womendiet.html"><img src="https://i.pinimg.com/originals/db/91/c5/db91c5121f4ce86603234a8bd5585574.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 6;--color-card: 252, 142, 142;">
+          <div class="img"><a href="mendiet.html"><img src="https://i.pinimg.com/originals/ba/1b/ce/ba1bce3e30058ca6b043afd0a9a92b56.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 7;--color-card: 252, 142, 239;">
+          <div class="img"><a href="womendiet.html"><img src="https://i.pinimg.com/originals/73/93/eb/7393eb72c65472e46c213e2b99c10992.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 8;--color-card: 204, 142, 252;">
+          <div class="img"><a href="mendiet.html"><img src="https://i.pinimg.com/originals/88/3d/06/883d061da85cd5b7bc90b59ec8e35194.gif" alt="" width="100%" height="100%"></a></div>
+        </div>
+        <div class="card" style="--index: 9;--color-card: 142, 202, 252;">
+          <div class="img"><a href="womendiet.html"><img src="https://i.pinimg.com/originals/a3/b0/f7/a3b0f7cdae784a10520b3abb46d7a01b.gif" alt="" width="100%" height="100%"></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="background-color: #000;display: flex;justify-content: space-around;padding:1rem">
+<div>
+  <h2 style="color: aliceblue">Women’s Fitness: Empower Your Health and Strength</h2>
+  <h4 style="color: gray;">Achieving fitness is about embracing a balanced lifestyle that promotes strength, confidence, and overall 
+    well-being.
+    <br>&nbsp;&nbsp; Women’s fitness focuses on tailored workouts, including cardio, strength training, and flexibility exercises, to enhance 
+    physical and mental health. From improving heart health and building bone density to reducing stress and boosting self-esteem, fitness
+     empowers women at every stage of life. Whether you're pursuing weight loss, toning, or general wellness, combining regular exercise with 
+     proper nutrition and rest is key to unlocking your full potential. Take the first step towards a healthier, happier you!</h4></div>
+</div>
+<div style="background-color: #000;display: flex;justify-content: space-around;padding:1rem">
+  <div>
+    <h2 style="color: aliceblue">Empower Your Strength: The Path to Men’s Fitness</h2>
+    <h4 style="color: gray;">Fitness is more than just a physical endeavor; it’s a lifestyle that defines strength, discipline, and resilience. 
+      For men, staying fit is crucial not only for building a muscular physique but also for maintaining overall health, boosting energy, and 
+      reducing the risk of chronic diseases. A well-rounded fitness routine combines strength training to build muscle, cardio for endurance, and
+       flexibility exercises to enhance mobility. Balanced nutrition and recovery are equally important to support physical performance and mental 
+       clarity. <br>
+       &nbsp;&nbsp;Men’s fitness is about setting goals, overcoming limits, and embracing consistency. Whether it’s lifting heavier weights, running faster, or 
+      simply feeling better in your own skin, each step is a victory. It’s a journey that challenges the body and sharpens the mind, fostering 
+      confidence, discipline, and a sense of accomplishment. Make fitness a priority today and unlock your full potential—your strongest, 
+      healthiest self awaits!</h4></div>
+  </div>
+<div id="enroll" style="display: flex;padding:2rem;gap:30px;justify-content: center;align-items: center;box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.102);;">
+  <div style="padding: 100px;">
+    <a href="enroll.html" style="text-align: center;" ><button class="button">Enroll</button></a>
+  </div>
+   <h3 style="text-align: center;">Transform Your Life Today!
+    Ready to take the first step towards a healthier, stronger, and more confident you? Our fitness program is designed for all levels—whether you're just starting or looking to elevate your training. With personalized workouts, expert guidance, and a supportive community, we are here to help you achieve your goals. Don’t wait for tomorrow to make a change—start your fitness journey today!
+
+    Click the button below to enroll and make the best investment in yourself!
+    Enroll Now</h3>
+</div>
+<div id="fitnesstrack" style="display: flex;padding:2rem;gap:30px;justify-content: center;align-items: center;box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.102);;">
+  <div style="padding: 100px;">
+    <a href="fitness.html"  ><button class="button">Fitness Track</button></a>
+  </div>
+   <h3 style="text-align: center;">Tracking your fitness journey is the cornerstone of success. Whether you are starting a new workout regimen or looking to fine-tune your current routine, our Fitness Tracker is designed to help you stay consistent, motivated, and on track toward achieving your goals.
+
+    Imagine having a personal fitness assistant right at your fingertips, guiding you every step of the way. With our Fitness Tracker, you can monitor every aspect of your health and fitness. From recording your workouts to setting achievable goals and tracking your progress in real time, we make it easier for you to stay committed to your journey.</h3>
+</div>
+<footer>
+  <div style="display: flex;justify-content: space-between;flex-direction: column;justify-content: center;align-items: center;margin: 10rem;">
+    <p>Results may vary from person to person. Always consult a professional before starting any fitness or dietary program</p>
+      <p><strong>This is a Demo Website</strong></p>
+      <p><strong>Content and features are for demonstration purposes only</strong></p>
+     
+  </div>
+</footer>
+</body>
+</html>
+
+
